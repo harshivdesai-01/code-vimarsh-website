@@ -1,2 +1,328 @@
-# code-vimarsh-website
-Official website of Code Vimarsh – a technical society focused on engineering excellence and innovation.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code Vimarsh | Engineering Excellence</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins', sans-serif;
+    }
+
+    body{
+      background:
+        radial-gradient(circle at 20% 10%, #1e1b4b, transparent 40%),
+        radial-gradient(circle at 80% 30%, #0ea5e9, transparent 35%),
+        radial-gradient(circle at 50% 90%, #7c3aed, transparent 45%),
+        #020617;
+      color:#e5e7eb;
+      overflow-x:hidden;
+    }
+
+    /* HEADER */
+    header{
+      position:fixed;
+      top:0;
+      width:100%;
+      z-index:1000;
+      backdrop-filter: blur(14px);
+      background: rgba(2,6,23,0.75);
+      border-bottom:1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav{
+      max-width:1200px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:16px 32px;
+    }
+
+    .logo{
+      width:42px;
+      height:42px;
+      border-radius:12px;
+      background: linear-gradient(135deg,#38bdf8,#a78bfa,#f472b6);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 0 25px rgba(139,92,246,0.8);
+    }
+
+    .logo-c{
+      font-weight:800;
+      color:#020617;
+      font-size:16px;
+    }
+
+    .brand span{
+      font-size:24px;
+      font-weight:800;
+      letter-spacing:1px;
+      background: linear-gradient(90deg,#38bdf8,#a78bfa,#f472b6);
+      -webkit-background-clip:text;
+      color:transparent;
+    }
+
+    nav a{
+      margin-left:36px;
+      text-decoration:none;
+      color:#9ca3af;
+      font-weight:500;
+      position:relative;
+    }
+
+    nav a::after{
+      content:"";
+      position:absolute;
+      width:0;
+      height:2px;
+      left:0;
+      bottom:-6px;
+      background: linear-gradient(90deg,#38bdf8,#a78bfa);
+      transition:0.3s;
+    }
+
+    nav a:hover::after{
+      width:100%;
+    }
+
+    nav a:hover{
+      color:white;
+    }
+
+    /* HERO */
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:130px 20px 60px;
+      position:relative;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at center, rgba(167,139,250,0.15), transparent 60%);
+      pointer-events:none;
+    }
+
+    .hero h1{
+      font-size:3.7rem;
+      font-weight:800;
+      line-height:1.15;
+      background: linear-gradient(90deg,#38bdf8,#a78bfa,#f472b6);
+      -webkit-background-clip:text;
+      color:transparent;
+    }
+
+    .hero p{
+      max-width:780px;
+      margin:30px auto;
+      font-size:1.15rem;
+      color:#9ca3af;
+    }
+
+    .cta{
+      display:inline-block;
+      margin-top:40px;
+      padding:16px 44px;
+      border-radius:999px;
+      background: linear-gradient(90deg,#38bdf8,#a78bfa);
+      color:#020617;
+      font-weight:700;
+      text-decoration:none;
+      box-shadow:0 0 60px rgba(139,92,246,0.7);
+      transition:0.35s;
+    }
+
+    .cta:hover{
+      transform:scale(1.08);
+      box-shadow:0 0 90px rgba(139,92,246,0.9);
+    }
+
+    section{
+      padding:120px 25px;
+      position:relative;
+    }
+
+    section h2{
+      text-align:center;
+      font-size:3rem;
+      font-weight:800;
+      background: linear-gradient(90deg,#f472b6,#a78bfa,#38bdf8);
+      -webkit-background-clip:text;
+      color:transparent;
+    }
+
+    .section-text{
+      max-width:850px;
+      margin:28px auto 0;
+      text-align:center;
+      color:#9ca3af;
+      font-size:1.08rem;
+    }
+
+    .cards{
+      max-width:1150px;
+      margin:80px auto 0;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:36px;
+    }
+
+    .card{
+      background: linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      border:1px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(12px);
+      padding:40px;
+      border-radius:26px;
+      transition:0.45s;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: radial-gradient(circle at top left, rgba(167,139,250,0.18), transparent 60%);
+      opacity:0;
+      transition:0.4s;
+    }
+
+    .card:hover::before{
+      opacity:1;
+    }
+
+    .card:hover{
+      transform: translateY(-14px) scale(1.02);
+      box-shadow:0 30px 70px rgba(139,92,246,0.35);
+    }
+
+    .card h3{
+      font-size:1.35rem;
+      margin-bottom:14px;
+      color:#38bdf8;
+      position:relative;
+      z-index:1;
+    }
+
+    .card p{
+      color:#c7d2fe;
+      font-size:0.96rem;
+      position:relative;
+      z-index:1;
+    }
+
+    footer{
+      padding:50px 20px;
+      text-align:center;
+      color:#6b7280;
+      border-top:1px solid rgba(255,255,255,0.06);
+    }
+
+    @media(max-width:768px){
+      .hero h1{font-size:2.6rem;}
+      nav a{margin-left:22px;}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <div class="logo">
+          <span class="logo-c">&lt;/&gt;</span>
+        </div>
+        <span>Code Vimarsh</span>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#events">Events</a>
+        <a href="#why">Why Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <h1>Where Code Meets<br>Clarity & Character</h1>
+      <p>
+        Code Vimarsh is a next-generation technical society focused on engineering depth,
+        disciplined thinking, and building innovators who stand apart — not blend in.
+      </p>
+      <a href="#about" class="cta">Enter the Culture</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>Our Philosophy</h2>
+    <p class="section-text">
+      We believe excellence is intentional. Code Vimarsh nurtures a culture of mastery,
+      ethics, and leadership through selective learning, collaborative problem-solving,
+      and long-term vision.
+    </p>
+  </section>
+
+  <!-- EVENTS -->
+  <section id="events">
+    <h2>What We Build</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Innovation Labs</h3>
+        <p>Hands-on exploration of real-world systems, research problems, and products.</p>
+      </div>
+      <div class="card">
+        <h3>Elite Coding Circles</h3>
+        <p>Deep dives into algorithms, system thinking, and competitive excellence.</p>
+      </div>
+      <div class="card">
+        <h3>Leadership & Outreach</h3>
+        <p>Members lead initiatives, mentor peers, and represent a higher standard.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section id="why">
+    <h2>Why Code Vimarsh</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Selective by Design</h3>
+        <p>We prioritize commitment, curiosity, and character over numbers.</p>
+      </div>
+      <div class="card">
+        <h3>Depth over Noise</h3>
+        <p>Focused learning paths instead of superficial trends.</p>
+      </div>
+      <div class="card">
+        <h3>Identity with Purpose</h3>
+        <p>Not just a club — a culture that shapes future engineers.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Code Vimarsh • Built with Vision, Discipline & Innovation
+  </footer>
+
+</body>
+</html>
+
